@@ -1,5 +1,7 @@
+// les références des éléments de la page HTML
 const grid = document.getElementById('grid');
 const scoreElement = document.getElementById('score');
+// Initialisez les variables du jeu
 let score = 0;
 let playerX = 0;
 let playerY = 0;
@@ -35,8 +37,8 @@ dungeonGrid[3][10] = 'treasure';
 dungeonGrid[6][3] = 'treasure';
 dungeonGrid[8][13] = 'treasure';
 
+// Génère la grille du jeu
 function generateGrid() {
- 
   for (let y = 0; y < dungeonGrid.length; y++) {
     for (let x = 0; x < dungeonGrid[y].length; x++) {
       const cell = document.createElement('div');
@@ -60,22 +62,24 @@ function generateGrid() {
     }
   }
 }
+// Affiche la grille du jeu
 function displayGrid() {
   console.log("hi");
   grid.innerHTML = '';
  
   generateGrid();
 }
-
+// Vérifie l'état du jeu (victoire ou défaite)
 function checkGameStatus() {
-  // Vérifiez ici si le joueur a gagné ou perdu et effectuez les actions appropriées.
+  
 }
-
+// Met à jour le score affiché
 function updateScore() {
  
   scoreElement.textContent = score;
   
 }
+// Déplace le joueur dans la grille
 function movePlayer(directionX, directionY) {
   const newX = playerX + directionX;
   const newY = playerY + directionY;
@@ -115,7 +119,7 @@ console.log(newX, newY);
   }
 }
 
-
+// Déplace les monstres dans la grille
 function moveMonsters() {
   monsters.forEach((monster) => {
 
@@ -147,12 +151,13 @@ console.log("New Position:", newX, newY);
   displayGrid(); // Assurez-vous que l'affichage est mis à jour après le déplacement des monstres
 }
 
-
+// Place les monstres initialement dans la grille
 function placeMonsters() {
   monsters.forEach((monster) => {
     dungeonGrid[monster.y][monster.x] = 'monster';
   });
 }
+// Place les trésors initialement dans la grille
 function placeTreasures() {
   const availablePositions = [];
   
@@ -171,7 +176,7 @@ function placeTreasures() {
   dungeonGrid[availablePositions[2][0]][availablePositions[2][1]] = 'treasure';
 }
 
-
+// Traite la victoire du joueur
 function gameWon() {
   // Obtenir la référence vers l'élément audio de la victoire
   const victorySound = document.getElementById('victorySound');
@@ -181,7 +186,7 @@ function gameWon() {
   alert('Vous avez gagné !');
   resetGame();
 }
-
+// Traite la défaite du joueur
 function gameOver() {
   // Joue le son de capture
   const captureSound = document.getElementById('captureSound');
@@ -190,7 +195,7 @@ function gameOver() {
   alert('Terminé ! Vous avez été capturé.');
   resetGame();
 }
-
+// Gestionnaire d'événements pour les touches de direction
 document.addEventListener('keydown', (event) => {
   switch (event.key) {
     case 'ArrowUp':
@@ -220,7 +225,7 @@ restartButton.addEventListener('click', resetGame);
 
 // Générez la grille initiale
 generateGrid();
-
+// Réinitialise le jeu
 function resetGame() {
   // Réinitialiser les scores et trésors collectés
   score = 0;
