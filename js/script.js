@@ -142,8 +142,9 @@ function moveMonsters() {
       monster.y = newY;
 
       // Placez le monstre à son nouvel emplacement
-      dungeonGrid[newY][newX] = 'monster';
+      dungeonGrid[newY][newX] = 'monster'; 
     }
+    
   });
 
   displayGrid(); // Assurez-vous que l'affichage est mis à jour après le déplacement des monstres
@@ -220,9 +221,17 @@ const restartButton = document.getElementById('restartBtn');
 // Ajouter un gestionnaire d'événements au clic sur le bouton "Recommencer"
 restartButton.addEventListener('click', resetGame);
 
+function initializeGame() {
+  placeMonsters(); // Place les monstres initialement
+  placeTreasures(); // Place les trésors initialement
+  generateGrid(); // Génère la grille du jeu
+}
 
 // Générez la grille initiale
 generateGrid();
+// Réinitialise le jeu
+// ...
+
 // Réinitialise le jeu
 function resetGame() {
   // Réinitialiser les scores et trésors collectés
@@ -240,12 +249,14 @@ function resetGame() {
   grid.innerHTML = '';
 
   // Rétablir les positions initiales des monstres et des trésors
-  dungeonGrid[4][8] = 'monster';
-  dungeonGrid[7][9] = 'monster';
+  
   dungeonGrid[3][10] = 'treasure';
   dungeonGrid[6][3] = 'treasure';
   dungeonGrid[8][13] = 'treasure';
 
   // Générer la nouvelle grille
   generateGrid();
+
+  // Appel à initializeGame() pour remettre en place les monstres et les trésors
+  initializeGame();
 }
