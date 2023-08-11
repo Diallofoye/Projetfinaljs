@@ -133,13 +133,13 @@ function moveMonsters() {
       { x: 0, y: -1 } // Haut
     ];
 
-    // Choisissez une direction aléatoire parmi celles disponibles
+    // Choisi une direction aléatoire parmi celles disponibles
     const randomDirection = directions[Math.floor(Math.random() * directions.length)];
 
     const newX = monster.x + randomDirection.x;
     const newY = monster.y + randomDirection.y;
 
-    // Vérifiez si les nouvelles coordonnées sont valides
+    // Vérifie si les nouvelles coordonnées sont valides
     if (
       newX >= 0 &&
       newX < dungeonGrid[0].length &&
@@ -154,7 +154,8 @@ function moveMonsters() {
 
       // Si les nouvelles coordonnées ne sont pas un mur, déplacer le monstre
       if (dungeonGrid[newY][newX] !== 'wall') {
-        // Effacez l'emplacement actuel du monstre
+        
+        // Efface l'emplacement actuel du monstre
         dungeonGrid[monster.y][monster.x] = 'empty';
         
         // Mettez à jour les nouvelles coordonnées du monstre
