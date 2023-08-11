@@ -1,6 +1,8 @@
 // les références des éléments de la page HTML
+
 const grid = document.getElementById('grid');
 const scoreElement = document.getElementById('score');
+
 // Initialisez les variables du jeu
 let score = 0;
 let playerX = 0;
@@ -98,6 +100,7 @@ console.log(newX, newY);
       treasuresCollected++;
       updateScore();
       dungeonGrid[newY][newX] = 'empty';
+     
       // Jouer le son du trésor
       const treasureSound = document.getElementById('treasureSound');
       treasureSound.play();
@@ -177,6 +180,7 @@ function placeTreasures() {
 
 // Traite la victoire du joueur
 function gameWon() {
+  
   // Obtenir la référence vers l'élément audio de la victoire
   const victorySound = document.getElementById('victorySound');
 
@@ -187,6 +191,7 @@ function gameWon() {
 }
 // Traite la défaite du joueur
 function gameOver() {
+  
   // Joue le son de capture
   const captureSound = document.getElementById('captureSound');
   captureSound.play();
@@ -216,11 +221,14 @@ document.getElementById('upBtn').addEventListener('click', () => movePlayer(0, -
 document.getElementById('leftBtn').addEventListener('click', () => movePlayer(-1, 0));
 document.getElementById('rightBtn').addEventListener('click', () => movePlayer(1, 0));
 document.getElementById('downBtn').addEventListener('click', () => movePlayer(0, 1));
+
 // Obtenir la référence vers le bouton "Recommencer"
 const restartButton = document.getElementById('restartBtn');
+
 // Ajouter un gestionnaire d'événements au clic sur le bouton "Recommencer"
 restartButton.addEventListener('click', resetGame);
 
+// Fonction pour générer la grille initiale avec les monstres et les trésors
 function initializeGame() {
   placeMonsters(); // Place les monstres initialement
   placeTreasures(); // Place les trésors initialement
@@ -229,8 +237,7 @@ function initializeGame() {
 
 // Générez la grille initiale
 generateGrid();
-// Réinitialise le jeu
-// ...
+
 
 // Réinitialise le jeu
 function resetGame() {
