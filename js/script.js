@@ -85,7 +85,7 @@ function updateScore() {
 function movePlayer(directionX, directionY) {
   const newX = playerX + directionX;
   const newY = playerY + directionY;
-console.log(newX, newY);
+
   if (
     newX >= 0 &&
     newX < dungeonGrid[0].length &&
@@ -123,35 +123,53 @@ console.log(newX, newY);
 }
 
 // Déplace les monstres dans la grille
+
 function moveMonsters() {
   monsters.forEach((monster) => {
+    const directions = [
+      { x: 1, y: 0 }, // Droite
+      { x: -1, y: 0 }, // Gauche
+      { x: 0, y: 1 }, // Bas
+      { x: 0, y: -1 } // Haut
+    ];
 
-    const newX = monster.x + (Math.round(Math.random()) === 0 ? 1 : -1);
-    const newY = monster.y + (Math.round(Math.random()) === 0 ? 1 : -1);
+    // Choisissez une direction aléatoire parmi celles disponibles
+    const randomDirection = directions[Math.floor(Math.random() * directions.length)];
+
+    const newX = monster.x + randomDirection.x;
+    const newY = monster.y + randomDirection.y;
 
     // Vérifiez si les nouvelles coordonnées sont valides
     if (
       newX >= 0 &&
       newX < dungeonGrid[0].length &&
       newY >= 0 &&
-      newY < dungeonGrid.length &&
-      dungeonGrid[newY][newX] !== 'wall'
+      newY < dungeonGrid.length
     ) {
-      // Effacez l'emplacement actuel du monstre
-      dungeonGrid[monster.y][monster.x] = 'empty';
-      
-      // Mettez à jour les nouvelles coordonnées du monstre
-      monster.x = newX;
-      monster.y = newY;
+      // Si le monstre rencontre le joueur, le jeu est perdu
+      if (dungeonGrid[newY][newX] === 'player') {
+        gameOver();
+        return; // Sortir de la boucle pour éviter les mouvements inutiles
+      }
 
-      // Placez le monstre à son nouvel emplacement
-      dungeonGrid[newY][newX] = 'monster'; 
+      // Si les nouvelles coordonnées ne sont pas un mur, déplacer le monstre
+      if (dungeonGrid[newY][newX] !== 'wall') {
+        // Effacez l'emplacement actuel du monstre
+        dungeonGrid[monster.y][monster.x] = 'empty';
+        
+        // Mettez à jour les nouvelles coordonnées du monstre
+        monster.x = newX;
+        monster.y = newY;
+
+        // Placez le monstre à son nouvel emplacement
+        dungeonGrid[newY][newX] = 'monster'; 
+      }
     }
-    
   });
 
   displayGrid(); // Assurez-vous que l'affichage est mis à jour après le déplacement des monstres
 }
+
 
 // Place les monstres initialement dans la grille
 function placeMonsters() {
