@@ -152,8 +152,8 @@ function moveMonsters() {
         return; // Sortir de la boucle pour éviter les mouvements inutiles
       }
 
-      // Si les nouvelles coordonnées ne sont pas un mur, déplacer le monstre
-      if (dungeonGrid[newY][newX] !== 'wall') {
+      // Si les nouvelles coordonnées ne sont pas un mur ni un trésor, déplacer le monstre
+      if (dungeonGrid[newY][newX] !== 'wall' && dungeonGrid[newY][newX] !== 'treasure') {
         
         // Efface l'emplacement actuel du monstre
         dungeonGrid[monster.y][monster.x] = 'empty';
@@ -252,6 +252,7 @@ function initializeGame() {
   placeMonsters(); // Place les monstres initialement
   placeTreasures(); // Place les trésors initialement
   generateGrid(); // Génère la grille du jeu
+  
 }
 
 // Générez la grille initiale
@@ -286,3 +287,6 @@ function resetGame() {
   // Appel à initializeGame() pour remettre en place les monstres et les trésors
   initializeGame();
 }
+
+
+
