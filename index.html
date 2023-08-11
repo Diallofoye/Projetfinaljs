@@ -7,21 +7,26 @@
   <script src="./js/script.js" defer></script>
 </head>
 <body>
+  <!-- Conteneur pour la grille de jeu -->
   <div class="grid" id="grid">
     <!-- La grille sera générée ici en JavaScript -->
   </div>
   <div>
+    <!-- Affichage du score du joueur -->
     <p>Score: <span id="score">0</span></p>
+    <!-- Boutons de déplacement du joueur -->
   <button id="upBtn">En Haut</button>
   <button id="leftBtn">Gauche</button>
   <button id="rightBtn">Droite</button>
   <button id="downBtn">En Bas</button>
     <br>
     <br>
+    <!-- Bouton pour réinitialiser le jeu -->
     <button id="restartBtn">Reinitialiser</button>
   </div>
-  <audio id="captureSound" src="./img/game-over.mp3" preload="auto" style="display: none;"></audio>
-  <audio id="victorySound" src="./img/game-win.mp3" preload="auto" style="display: none;"></audio>
-  <audio id="treasureSound" src="./img/eat.mp3" preload="auto" style="display: none;"></audio>
+   <!-- Éléments audio pour les sons du jeu (non affichés) -->
+  <audio id="captureSound" src="./js/game-over.mp3" preload="auto" style="display: none;"></audio>
+  <audio id="victorySound" src="./js/game-win.mp3" preload="auto" style="display: none;"></audio>
+  <audio id="treasureSound" src="./js/eat.mp3" preload="auto" style="display: none;"></audio>
 </body>
 </html>

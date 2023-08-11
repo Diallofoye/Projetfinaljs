@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   text-align: center;
 }
-
+/* Styles de la grille de jeu */
 .grid {
   display: grid;
   grid-template-columns: repeat(25, 28px); /* 25 cellules de large */
@@ -11,7 +11,7 @@ body {
   justify-content: center;
   margin-top: 60px;
 }
-
+/* Styles des cellules de la grille */
 .cell {
   width: 28px;
   height: 28px;
@@ -23,20 +23,21 @@ body {
   
   background-image: url(../img/player.png);
 }
-
+/* Style du monstre */
 .monster {
   background-image: url(../img/monstre.png);
   
 }
-
+/* Style du trésor */
 .treasure {
   background-image: url(../img/treasure.png);
 }
-
+/* Style du mur */
 .wall {
   background-color: black;
 }
 
+/* Style des cellules vides (sol) */
 .empty {
   background-color: white;
 }

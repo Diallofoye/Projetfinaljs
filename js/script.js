@@ -64,7 +64,6 @@ function generateGrid() {
 }
 // Affiche la grille du jeu
 function displayGrid() {
-  console.log("hi");
   grid.innerHTML = '';
  
   generateGrid();
