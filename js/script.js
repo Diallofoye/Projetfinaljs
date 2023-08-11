@@ -64,6 +64,7 @@ function generateGrid() {
 }
 // Affiche la grille du jeu
 function displayGrid() {
+
   grid.innerHTML = '';
  
   generateGrid();
@@ -124,8 +125,6 @@ function moveMonsters() {
 
     const newX = monster.x + (Math.round(Math.random()) === 0 ? 1 : -1);
     const newY = monster.y + (Math.round(Math.random()) === 0 ? 1 : -1);
-console.log("Old Position:", monster.x, monster.y);
-console.log("New Position:", newX, newY);
 
     // Vérifiez si les nouvelles coordonnées sont valides
     if (
