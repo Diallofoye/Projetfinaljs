@@ -9,7 +9,7 @@ body {
   grid-template-rows: repeat(15, 28px); /* 15 cellules de haut */
   align-items: center;
   justify-content: center;
-  margin-top: 180px;
+  margin-top: 170px;
 }
 /* Styles des cellules de la grille */
 .cell {
@@ -41,9 +41,10 @@ body {
 .empty {
   background-color: white;
 }
+
 /* Style du message de bienvenue */
 .message {
-  background-color: rgba(255, 252, 252, 0.8);
+  background-color: rgba(228, 222, 222, 0.8);
   color: black;
   padding: 20px;
   text-align: center;
@@ -55,3 +56,4 @@ body {
   width: 100%;
   z-index: 9999;
 }
+
