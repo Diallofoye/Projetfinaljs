@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <title>Jeux - Roguelike</title>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script src="./js/script.js" defer></script>
+</head>
+<body>
+  <div class="grid" id="grid">
+    <!-- La grille sera générée ici en JavaScript -->
+  </div>
+  <div>
+    <p>Score: <span id="score">0</span></p>
+  <button id="upBtn">En Haut</button>
+  <button id="leftBtn">Gauche</button>
+  <button id="rightBtn">Droite</button>
+  <button id="downBtn">En Bas</button>
+    <br>
+    <br>
+    <button id="restartBtn">Reinitialiser</button>
+  </div>
+  <audio id="captureSound" src="./img/game-over.mp3" preload="auto" style="display: none;"></audio>
+  <audio id="victorySound" src="./img/game-win.mp3" preload="auto" style="display: none;"></audio>
+  <audio id="treasureSound" src="./img/eat.mp3" preload="auto" style="display: none;"></audio>
+</body>
+</html>

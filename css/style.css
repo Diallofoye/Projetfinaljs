@@ -1,0 +1,42 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(25, 28px); /* 25 cellules de large */
+  grid-template-rows: repeat(15, 28px); /* 15 cellules de haut */
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.cell {
+  width: 28px;
+  height: 28px;
+  border: 2px solid white;
+}
+
+/* Styles pour les éléments du donjon : joueur, monstre, trésor, mur et sol */
+.player {
+  
+  background-image: url(../img/player.png);
+}
+
+.monster {
+  background-image: url(../img/monstre.png);
+  
+}
+
+.treasure {
+  background-image: url(../img/treasure.png);
+}
+
+.wall {
+  background-color: black;
+}
+
+.empty {
+  background-color: white;
+}
